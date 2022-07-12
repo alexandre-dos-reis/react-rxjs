@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
 import { addProduct } from 'src/product/product.store'
-import { NewProduct } from 'src/product/product.type'
+import { NewProduct, Product } from 'src/product/product.type'
 
 export const ProductAdd = () => {
     const emptyProduct: NewProduct = {

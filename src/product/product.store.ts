@@ -40,7 +40,7 @@ export const addProduct = (product: NewProduct): void => {
     products$.next(products)
 }
 
-export const updateProducts = (product: Product): void => {
+export const updateProduct = (product: Product): void => {
     products[products.findIndex(p => p.id === product.id)] = product
     products$.next(products)
 }
