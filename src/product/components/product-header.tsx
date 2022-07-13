@@ -1,4 +1,4 @@
-import { useProducts, fetchProducts } from '../product.store'
+import { useProducts, fetchProducts, emptyProducts } from '../product.store'
 
 export const ProductHeader = () => {
     const products = useProducts()
@@ -7,6 +7,7 @@ export const ProductHeader = () => {
             <div>Total : {products.length}</div>
             <div>Total sold : {products.filter(p => p.isSold === true).length}</div>
             <button onClick={() => fetchProducts()}>Fetch products</button>
+            <button onClick={() => emptyProducts()}>Empty products</button>
         </>
     )
 }

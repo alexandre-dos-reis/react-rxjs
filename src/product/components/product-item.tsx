@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { deleteProduct, toggleIsSoldProduct } from '../product.store'
 import { Product } from '../product.type'
-import { ProductAdd } from './product-add'
 import { ProductEdit } from './product-edit'
 
 interface ProductItemProps {
@@ -11,8 +10,7 @@ interface ProductItemProps {
 export const ProductItem = ({ p }: ProductItemProps) => {
     const [isEditing, setIsEditing] = useState(false)
 
-    const handleEdit = (e: React.MouseEvent<HTMLButtonElement>) => {
-        e.preventDefault()
+    const toggleEdit = () => {
         setIsEditing(!isEditing)
     }
 
@@ -20,12 +18,14 @@ export const ProductItem = ({ p }: ProductItemProps) => {
         <li className="grid">
             {isEditing ? (
                 <>
-                    <ProductEdit p={p} setIsEditing={setIsEditing}/>
+                    <ProductEdit p={p} toggleEdit={toggleEdit} />
                 </>
             ) : (
                 <article>
                     <header>
-                        <h2>{p.title}</h2>
+                        <h2>
+                            {p.title}
+                        </h2>
                         <p>{p.description}</p>
                         <img
                             src={p.image}
@@ -44,7 +44,7 @@ export const ProductItem = ({ p }: ProductItemProps) => {
                                 onChange={() => toggleIsSoldProduct(p)}
                             />
                         </fieldset>
-                        <button onClick={handleEdit}>Edit</button>
+                        <button onClick={() => toggleEdit()}>Edit</button>
                         <button onClick={() => deleteProduct(p)}>Delete</button>
                     </footer>
                 </article>

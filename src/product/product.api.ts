@@ -6,10 +6,10 @@ export const callApiProducts = async (): Promise<Product[]> => {
         .then(data => data)
 }
 
-export const updateApiProduct = async (product: Omit<Product, 'id'>): Promise<Product> => {
+export const updateApiProduct = async (product: Product): Promise<Product> => {
     return new Promise<Product>(() => {})
 }
 
-export const deleteApiProduct = async (product: Omit<Product, 'id'>): Promise<boolean> => {
+export const deleteApiProduct = async (product: Product): Promise<boolean> => {
     return new Promise<boolean>(() => {})
 }
